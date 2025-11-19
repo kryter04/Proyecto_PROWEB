@@ -1,0 +1,40 @@
+
+
+h2 {
+    font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+    color: aliceblue;
+    font-size: 2rem;
+    font-weight: extra-bold;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.bg-image {
+    
+    background-size: cover;      /* Ajusta la imagen para cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center;
+    height: 200vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.signup_box {
+    font-family: Arial, sans-serif;
+    color: aliceblue;
+    width: 400px;
+    margin: 0rem auto;
+    padding: 2rem;
+    
+}
+
+.column_registro{
+    background-color: #212F3C ;
+    width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px  ;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}

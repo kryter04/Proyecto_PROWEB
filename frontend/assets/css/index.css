@@ -1,0 +1,32 @@
+
+
+
+.barra_nav{
+    font-size: larger;
+}
+
+
+.navbar-brand {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 1.8rem;
+    color: #000000 !important;
+
+
+}
+
+.aviso {
+    text-align: center;
+    margin-top: 50px;
+    color: #295354;
+}
+
+footer {
+    background-color: #1DA1A4;
+    font-size: small;
+    color: #000000;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

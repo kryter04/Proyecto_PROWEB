@@ -1,0 +1,103 @@
+/* ===========================================================
+   HOLA EQUIPO - ESTILOS GLOBALES (GLOBAL.CSS)
+   ===========================================================
+   Este es el archivo maestro de estilos.
+   Aquí definimos los colores, fuentes y componentes que se
+   usan en TODAS las páginas.
+   =========================================================== */
+
+:root {
+    /* --- PALETA DE COLORES (Basada en el diseño original) --- */
+    --primary-color: #0d6efd;   /* Azul Bootstrap */
+    --secondary-color: #6c757d; /* Gris */
+    --success-color: #198754;   /* Verde */
+    --danger-color: #dc3545;    /* Rojo */
+    --warning-color: #ffc107;   /* Amarillo */
+    --dark-color: #212529;      /* Casi negro */
+    --light-color: #f8f9fa;     /* Gris muy clarito */
+}
+
+/* --- REGLAS BÁSICAS --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Títulos un poco más negritas para que resalten */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; 
+    color: var(--dark-color);
+}
+
+/* --- COMPONENTES DEL NAVBAR --- */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* --- SECCIÓN HERO (LA PORTADA) --- */
+/* Oigan: Asegúrense de que la imagen 'hero.jpg' esté en assets/img/ */
+.hero-section {
+    /* El degradado hace que el texto blanco se lea mejor sobre la foto */
+    background-color: #fff;
+    /* Si quisieran poner la imagen de fondo en toda la sección en vez de a la derecha, 
+       descomenten la siguiente línea: */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/hero.jpg'); */
+}
+
+/* --- TARJETAS Y EFECTOS (CARDS) --- */
+.card {
+    border-radius: 15px; /* Bordes redondeados modernos */
+    border: none; /* Sin borde feo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Clase helper para el efecto de levantar al pasar el mouse */
+.hover-effect:hover {
+    transform: translateY(-10px); /* Se mueve para arriba */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* --- ICONOS DE LAS VENTAJAS --- */
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+/* --- BOTONES --- */
+.btn {
+    border-radius: 50px; /* Botones tipo píldora (redondos) */
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Efecto de clic sutil */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--dark-color);
+}
+
+footer a.hover-white:hover {
+    color: #fff !important;
+    text-decoration: underline !important;
+}
+
+/* --- UTILIDADES --- */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-light {
+    background-color: var(--light-color) !important;
+}
