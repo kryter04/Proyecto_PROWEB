@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('Pago', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('Usuario')->onDelete('cascade');
+            $table->decimal('amount', 8, 2);
+            $table->date('payment_date');
+            $table->string('payment_method');
+            $table->string('concept')->nullable();           
             $table->timestamps();
         });
     }

@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('memberships', function (Blueprint $table) {
+        Schema::create('Membresia', function (Blueprint $table) {
             $table->id();
+            // Relaciones apuntando a las tablas nuevas
+            $table->foreignId('user_id')->constrained('Usuario')->onDelete('cascade');
+            $table->foreignId('plan_id')->constrained('Plan')->onDelete('cascade');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->enum('status', ['active', 'expired', 'cancelled'])->default('active');
             $table->timestamps();
         });
     }

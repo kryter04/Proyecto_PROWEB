@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plans', function (Blueprint $table) {
+        Schema::create('Plan', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->decimal('price', 8, 2);
+            $table->integer('duration_days');
+            $table->text('benefits')->nullable();
             $table->timestamps();
         });
     }
