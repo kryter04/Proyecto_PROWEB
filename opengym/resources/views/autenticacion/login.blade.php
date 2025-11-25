@@ -49,11 +49,11 @@
                         
                         <div class="text-center">
                             <p class="mb-2 text-muted">¿No tienes una cuenta?</p>
-                            <a href="registro.html" class="btn btn-outline-primary rounded-pill px-4">Regístrate</a>
+                            <a href="{{ route('registro') }}" class="btn btn-outline-primary rounded-pill px-4">Regístrate</a>
                         </div>
                     </div>
                     <div class="card-footer bg-white text-center py-3 border-0 rounded-bottom-4">
-                        <a href="index.html" class="text-decoration-none fw-bold small">
+                        <a href="{{ route('inicio') }}" class="text-decoration-none fw-bold small">
                             <i class="fas fa-arrow-left me-1"></i> Volver al inicio
                         </a>
                     </div>

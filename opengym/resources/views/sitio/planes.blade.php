@@ -18,20 +18,25 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="{{ route('inicio') }}">
-                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo OpenGym" width="30" height="30" class="d-inline-block align-text-top me-2">
                 OpenGym
             </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
+                    
                     <li class="nav-item"><a class="nav-link" href="{{ route('inicio') }}">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('acerca') }}">Acerca</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{{ route('planes') }}">Planes</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contacto') }}">Contacto</a></li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-light ms-lg-2 px-3 mt-2 mt-lg-0" href="{{ route('login') }}">Iniciar Sesión</a>
+
+                    <li class="nav-item"><a class="nav-link btn btn-outline-light ms-lg-2 px-3 mt-2 mt-lg-0" href="{{ route('login') }}">Iniciar Sesión</a>
+                        
                     </li>
                 </ul>
             </div>

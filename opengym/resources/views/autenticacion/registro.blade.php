@@ -54,11 +54,11 @@
                         
                         <div class="text-center">
                             <p class="mb-2 text-muted">¿Ya tienes cuenta?</p>
-                            <a href="login.html" class="btn btn-outline-primary rounded-pill px-4">Iniciar Sesión</a>
+                            <a href="{{ route('login') }}" class="btn btn-outline-primary rounded-pill px-4">Iniciar Sesión</a>
                         </div>
                     </div>
                     <div class="card-footer bg-white text-center py-3 border-0 rounded-bottom-4">
-                        <a href="index.html" class="text-decoration-none fw-bold small">Volver al inicio</a>
+                        <a href="{{ route('inicio') }}" class="text-decoration-none fw-bold small">Volver al inicio</a>
                     </div>
                 </div>
 

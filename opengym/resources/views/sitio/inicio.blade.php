@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand fw-bold" href="{{ route('inicio') }}">
                 <img src="{{ asset('assets/img/logo.png') }}" alt="Logo OpenGym" width="30" height="30" class="d-inline-block align-text-top me-2">
                 OpenGym
             </a>
@@ -33,7 +33,7 @@
                     <li class="nav-item">
 
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-light ms-lg-2 px-3 mt-2 mt-lg-0" href="login.html">Iniciar Sesión</a>
+                        <a class="nav-link btn btn-outline-light ms-lg-2 px-3 mt-2 mt-lg-0" href="{{ route('login') }}">Iniciar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -50,8 +50,8 @@
                         <h1 class="display-4 fw-bold text-dark mb-4">Transforma tu Vida con <span class="text-primary">OpenGym</span></h1>
                         <p class="lead text-secondary mb-4">El gimnasio moderno que se adapta a tus necesidades y objetivos personales.</p>
                         <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
-                            <a href="pages/planes.html" class="btn btn-success btn-lg rounded-pill px-4">Ver Planes</a>
-                            <a href="pages/contacto.html" class="btn btn-outline-primary btn-lg rounded-pill px-4">Contáctanos</a>
+                            <a href="{{ route('planes') }}" class="btn btn-success btn-lg rounded-pill px-4">Ver Planes</a>
+                            <a href="{{ route('contacto') }}" class="btn btn-outline-primary btn-lg rounded-pill px-4">Contáctanos</a>
                         </div>
                     </div>
                     <div class="col-lg-6 mt-5 mt-lg-0 text-center">
@@ -109,7 +109,7 @@
             <div class="container text-center">
                 <h2 class="fw-bold mb-3">¿Listo para comenzar tu transformación?</h2>
                 <p class="mb-4 fs-5">Únete a miles de personas que ya están alcanzando sus metas fitness.</p>
-                <a href="pages/planes.html" class="btn btn-light text-primary fw-bold btn-lg rounded-pill px-5 shadow">Explora nuestros planes</a>
+                <a href="{{ route('planes') }}" class="btn btn-light text-primary fw-bold btn-lg rounded-pill px-5 shadow">Explora nuestros planes</a>
             </div>
         </section>
 
@@ -126,10 +126,10 @@
                 <div class="col-md-4">
                     <h5 class="fw-bold mb-3">Enlaces Rápidos</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none hover-white">Inicio</a></li>
-                        <li class="mb-2"><a href="pages/acerca.html" class="text-white-50 text-decoration-none hover-white">Acerca de</a></li>
-                        <li class="mb-2"><a href="pages/planes.html" class="text-white-50 text-decoration-none hover-white">Planes</a></li>
-                        <li class="mb-2"><a href="pages/contacto.html" class="text-white-50 text-decoration-none hover-white">Contacto</a></li>
+                        <li class="mb-2"><a href="{{ route('inicio') }}" class="text-white-50 text-decoration-none hover-white">Inicio</a></li>
+                        <li class="mb-2"><a href="{{ route('acerca') }}" class="text-white-50 text-decoration-none hover-white">Acerca de</a></li>
+                        <li class="mb-2"><a href="{{ route('planes') }}" class="text-white-50 text-decoration-none hover-white">Planes</a></li>
+                        <li class="mb-2"><a href="{{ route('contacto') }}" class="text-white-50 text-decoration-none hover-white">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
