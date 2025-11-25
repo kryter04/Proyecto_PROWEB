@@ -1,80 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-   
-   
-    <title>Panel de Empleado</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Empleado - OpenGym</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/css/estilos.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
 
-    <!--Boton para cerrar sesion-->
-    <div class="row align-content-end ">
-        <a href="" class="btn btn-primary">Cerrar Sesion</a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-warning fixed-top">
+    <div class="container-fluid">
+      <span class="navbar-brand">Dashboard Empleado</span>
+      <a href="" class="btn btn-outline-dark">Cerrar sesión</a>
     </div>
+  </nav>
 
-    <div class="container mt-5 tarjetas">
-        
-       
+  <!-- Contenido principal -->
+  <main class="container pt-5 mt-4">
+    <h2 class="text-center mb-4">Panel del Empleado</h2>
+    <div class="row g-4">
 
-        <div class="row">
-            <h2 class="text-center">Panel de Empleado</h2>
-
-            <div class="col-md-5">
-
-                <!--Tarjeta para ir a sección registro de pagos-->
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Registrar pagos</h3>
-                        <p>Registra los pagos realizados por los socios.</p>
-                        <a href="" class="btn btn-primary">Ir a sección</a>
-                    </div>
-                </div>
-                <!--Tarjeta para ir a sección consultar informacion-->
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Consultar información</h3>
-                        <p>Busca datos de socios, pagos o membresias.</p>
-                        <a href="" class="btn btn-primary">Ir a sección</a>
-                    </div>
-                </div>
-            </div>
-
-
-             <div class="col-md-5">
-                
-             <!--Tarjeta para ir a sección alta de socios-->
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Alta de socios</h3>
-                        <p>Agrega nuevos socios al sistema de forma rápida.</p>
-                        <a href="" class="btn btn-primary">Ir a sección</a>
-                    </div>
-                </div>
-
-                <!--Tarjeta para ir a sección anuncios-->
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Anuncios</h3>
-                        <p>Publica o revisa comunicados internos del gimnasio.</p>
-                        <a href="" class="btn btn-primary">Ir a sección</a>
-                    </div>
-                </div>
-
-            </div>
+      <!-- Registrar Pagos -->
+      <div class="col-md-6">
+        <div class="card h-100 text-center">
+          <div class="card-body">
+            <i class="fas fa-cash-register fa-2x mb-3 text-warning"></i>
+            <h5 class="card-title">Registrar Pagos</h5>
+            <p class="card-text">Registra los pagos realizados por los socios.</p>
+            <a href="{{ route('registrar_pagos') }}" class="btn btn-warning">Ir a sección</a>
+          </div>
         </div>
+      </div>
+
+      <!-- Alta de Socios -->
+      <div class="col-md-6">
+        <div class="card h-100 text-center">
+          <div class="card-body">
+            <i class="fas fa-user-plus fa-2x mb-3 text-warning"></i>
+            <h5 class="card-title">Alta de Socios</h5>
+            <p class="card-text">Agrega nuevos socios al sistema de forma rápida.</p>
+            <a href="{{ route('altas_socios') }}" class="btn btn-warning">Ir a sección</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consultar Información -->
+      <div class="col-md-6">
+        <div class="card h-100 text-center">
+          <div class="card-body">
+            <i class="fas fa-search fa-2x mb-3 text-warning"></i>
+            <h5 class="card-title">Consultar Información</h5>
+            <p class="card-text">Busca datos de socios, pagos o membresías.</p>
+            <a href="{{ route('consultar_info') }}" class="btn btn-warning">Ir a sección</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anuncios -->
+      <div class="col-md-6">
+        <div class="card h-100 text-center">
+          <div class="card-body">
+            <i class="fas fa-bullhorn fa-2x mb-3 text-warning"></i>
+            <h5 class="card-title">Anuncios</h5>
+            <p class="card-text">Publica o revisa comunicados internos del gimnasio.</p>
+            <a href="{{ route('anuncios_empleado') }}" class="btn btn-warning">Ir a sección</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </main>
 
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>
