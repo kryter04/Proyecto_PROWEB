@@ -18,6 +18,7 @@ Route::get('/contacto', [SitioController::class, 'contacto'])->name('contacto');
 Route::get('/iniciar-sesion', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/iniciar-sesion', [AuthController::class, 'login']);
 Route::get('/registro', [AuthController::class, 'showRegisterForm'])->name('registro'); // Si tienes registro
+Route::post('/registro', [AuthController::class, 'register']);
 Route::post('/cerrar-sesion', [AuthController::class, 'logout'])->name('logout');
 
 // --- PANELES PRIVADOS (Protegidos) ---
