@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,18 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="OpenGym - Gimnasio moderno con planes accesibles">
     <title>OpenGym - Tu Gimnasio Moderno</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}">
-    
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo.png') }}">
 </head>
-
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
@@ -33,18 +26,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     
+                    <li class="nav-item"><a class="nav-link" href="{{ route('inicio') }}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('acerca') }}">Acerca</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('planes') }}">Planes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('contacto') }}">Contacto</a></li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/acerca.html">Acerca</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/planes.html">Planes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/contacto.html">Contacto</a>
-                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-light ms-lg-2 px-3 mt-2 mt-lg-0" href="login.html">Iniciar Sesión</a>
