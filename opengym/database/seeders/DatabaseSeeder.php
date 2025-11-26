@@ -8,51 +8,54 @@ use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-
     public function run(): void
     {
-        // 1. Crear los ROLES
+        // 1. Crear los ROLES (Agregamos created_at y updated_at)
         DB::table('rol')->insert([
-            ['name' => 'admin', 'description' => 'Acceso total al sistema'],
-            ['name' => 'empleado', 'description' => 'Acceso a ventas y registros'],
-            ['name' => 'socio', 'description' => 'Acceso a su perfil y pagos'],
+            ['name' => 'admin', 'description' => 'Acceso total al sistema', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'empleado', 'description' => 'Acceso a ventas y registros', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'socio', 'description' => 'Acceso a su perfil y pagos', 'created_at' => now(), 'updated_at' => now()],
         ]);
 
-        // 2. Crear los PLANES
+        // 2. Crear los PLANES (Agregamos created_at y updated_at)
         DB::table('Plan')->insert([
-[
-                // EL NORMAL
+            [
                 'name' => 'Plan Acceso',
                 'price' => 299.00,
                 'duration_days' => 30,
-                'benefits' => 'Acceso general a máquinas y cardio, Sin instructor'
+                'benefits' => 'Acceso general a máquinas y cardio, Sin instructor',
+                'created_at' => now(), 
+                'updated_at' => now()
             ],
             [
-                // CON ENTRENADOR
                 'name' => 'Plan Fitness',
                 'price' => 499.00,
                 'duration_days' => 30,
-                'benefits' => 'Acceso total + Rutinas personalizadas con Entrenador'
+                'benefits' => 'Acceso total + Rutinas personalizadas con Entrenador',
+                'created_at' => now(), 
+                'updated_at' => now()
             ],
             [
-                // CON NUTRIÓLOGO (Vale lo mismo que el de entrenador)
                 'name' => 'Plan Nutri',
                 'price' => 499.00,
                 'duration_days' => 30,
-                'benefits' => 'Acceso total + Plan de alimentación con Nutriólogo'
+                'benefits' => 'Acceso total + Plan de alimentación con Nutriólogo',
+                'created_at' => now(), 
+                'updated_at' => now()
             ],
             [
-                // CON LOS DOS (EL VIP)
                 'name' => 'Plan Transformación',
-                'price' => 799.00, // Un poco menos que la suma de los dos para que convenga
+                'price' => 799.00,
                 'duration_days' => 30,
-                'benefits' => 'Todo incluido: Entrenador + Nutriólogo + Acceso Total'
+                'benefits' => 'Todo incluido: Entrenador + Nutriólogo + Acceso Total',
+                'created_at' => now(), 
+                'updated_at' => now()
             ],
         ]);
 
-                 // 3. USUARIOS DE PRUEBA
+        // 3. USUARIOS DE PRUEBA
         
-        // Admin
+        // Admin (Rol 1)
         DB::table('Usuario')->insert([
             'name' => 'Admin',
             'lastname' => 'Principal',
@@ -63,7 +66,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        // Empleado
+        // Empleado (Rol 2)
         DB::table('Usuario')->insert([
             'name' => 'Staff',
             'lastname' => 'Ventas',
@@ -74,7 +77,7 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        // Socio (Le ponemos el Plan Transformación de ejemplo)
+        // Socio (Rol 3)
         DB::table('Usuario')->insert([
             'name' => 'Cliente',
             'lastname' => 'Prueba',
@@ -87,5 +90,4 @@ class DatabaseSeeder extends Seeder
 
         echo "Base de datos de prueba creada con éxito.";
     }
-
 }

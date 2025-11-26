@@ -6,11 +6,8 @@
     <title>Iniciar Sesión - OpenGym</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}">
-    
     <link rel="stylesheet" href="assets/css/login.css">
-    
     <link rel="icon" href="assets/img/logo.png">
 </head>
 <body class="bg-light d-flex align-items-center min-vh-100">
@@ -24,8 +21,8 @@
                         <h3 class="mb-0 fw-bold">Iniciar Sesión</h3>
                     </div>
                     <div class="card-body p-5">
-                        <form id="loginForm">
-                            <div class="mb-3">
+                        <form action="{{ route('login') }}" method="POST">
+                            @csrf <div class="mb-3">
                                 <label for="email" class="form-label fw-bold">Email *</label>
                                 <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="tu@email.com" required>
                             </div>
@@ -34,7 +31,7 @@
                                 <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="••••••••" required>
                             </div>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="recordar">
+                                <input type="checkbox" class="form-check-input" id="recordar" name="recordar">
                                 <label class="form-check-label" for="recordar">Recordarme</label>
                             </div>
                             
@@ -44,7 +41,6 @@
                                 <a href="#" class="text-decoration-none small">¿Olvidaste tu contraseña?</a>
                             </div>
                         </form>
-                        
                         <hr class="my-4">
                         
                         <div class="text-center">
@@ -64,6 +60,5 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/login.js"></script> 
 </body>
 </html>

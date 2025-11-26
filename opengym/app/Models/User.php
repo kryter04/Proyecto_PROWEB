@@ -11,7 +11,10 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
+
+    // Especificamos que la tabla se llama 'Usuario' (singular, según tu migración)
     protected $table = 'Usuario';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -19,8 +22,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname', // Agregado
         'email',
         'password',
+        'phone',    // Agregado
+        'role_id',  // Agregado
     ];
 
     /**

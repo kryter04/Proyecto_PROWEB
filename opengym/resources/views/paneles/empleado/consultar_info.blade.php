@@ -1,55 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Consultar Información - Empleado</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="/css/estilos.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Consultar Socios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="mb-4">Buscar Socio</h2>
+        
+        <form action="{{ route('empleado.consultar') }}" method="GET" class="card p-3 shadow-sm border-0 mb-4">
+            <div class="input-group">
+                <input type="text" name="busqueda" class="form-control" placeholder="Nombre, apellido o email..." value="{{ $busqueda }}">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+                <a href="{{ route('empleado.dashboard') }}" class="btn btn-outline-secondary">Volver</a>
+            </div>
+        </form>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-warning fixed-top">
-    <div class="container-fluid">
-      <span class="navbar-brand">Consultar Información</span>
-      <a href="empleado.html" class="btn btn-outline-dark">Volver</a>
+        @if(count($socios) > 0)
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($socios as $socio)
+                        <tr>
+                            <td>{{ $socio->name }} {{ $socio->lastname }}</td>
+                            <td>{{ $socio->email }}</td>
+                            <td>{{ $socio->phone }}</td>
+                            <td><span class="badge bg-success">Activo</span></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @elseif($busqueda)
+            <div class="alert alert-warning">No se encontraron socios con "{{ $busqueda }}"</div>
+        @endif
     </div>
-  </nav>
-
-  <!-- Contenido principal -->
-  <main class="container pt-5 mt-4">
-    <h2 class="mb-4">Buscar datos de socios</h2>
-    <form class="row g-3 mb-4">
-      <div class="col-md-6">
-        <label for="criterio" class="form-label">Buscar por nombre o ID</label>
-        <input type="text" class="form-control" id="criterio" placeholder="Ej. Juan Pérez o 001" />
-      </div>
-      <div class="col-md-6 d-flex align-items-end">
-        <button type="submit" class="btn btn-warning w-100">Buscar</button>
-      </div>
-    </form>
-
-    <h3>Resultados</h3>
-    <table class="table table-bordered table-hover mt-3">
-      <thead class="table-warning">
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th>Teléfono</th>
-          <th>Plan</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>001</td><td>Juan Pérez</td><td>juan@example.com</td><td>555-1234</td><td>Premium</td>
-        </tr>
-        <!-- Más resultados aquí -->
-      </tbody>
-    </table>
-  </main>
-
-  <script src="../js/scripts.js"></script>
 </body>
 </html>

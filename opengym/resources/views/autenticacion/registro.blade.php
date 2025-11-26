@@ -7,7 +7,8 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}">
-    <link rel="stylesheet" href="assets/css/registro.css"> <link rel="icon" href="assets/img/logo.png">
+    <link rel="stylesheet" href="assets/css/registro.css"> 
+    <link rel="icon" href="assets/img/logo.png">
 </head>
 <body class="bg-light py-5">
 
@@ -20,26 +21,31 @@
                         <h3 class="mb-0 fw-bold">Crear Cuenta</h3>
                     </div>
                     <div class="card-body p-5">
-                        <form id="registroForm">
-                            <div class="row g-3 mb-3">
+                        <form action="{{ route('registro') }}" method="POST">
+                            @csrf <div class="row g-3 mb-3">
                                 <div class="col-md-6">
                                     <label for="nombre" class="form-label fw-bold">Nombre *</label>
-                                    <input type="text" class="form-control" id="nombre" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="apellido" class="form-label fw-bold">Apellido *</label>
-                                    <input type="text" class="form-control" id="apellido" required>
+                                    <input type="text" class="form-control" id="apellido" name="apellido" required>
                                 </div>
                             </div>
                             
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-bold">Email *</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label fw-bold">Teléfono *</label>
+                                <input type="text" class="form-control" id="telefono" name="telefono" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="password" class="form-label fw-bold">Contraseña *</label>
-                                <input type="password" class="form-control" id="password" required>
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             
                             <div class="mb-3 form-check">
@@ -49,7 +55,6 @@
 
                             <button type="submit" class="btn btn-primary w-100 mb-3 btn-lg rounded-pill">Registrarse</button>
                         </form>
-                        
                         <hr class="my-4">
                         
                         <div class="text-center">
@@ -67,6 +72,5 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/registro.js"></script>
 </body>
 </html>

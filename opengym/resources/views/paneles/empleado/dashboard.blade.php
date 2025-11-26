@@ -1,80 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard Empleado - OpenGym</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="/css/estilos.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Panel Empleado - OpenGym</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .card-menu { transition: transform 0.3s; cursor: pointer; }
+        .card-menu:hover { transform: translateY(-5px); }
+    </style>
 </head>
-<body>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-primary mb-5">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1"><i class="fas fa-user-tie me-2"></i>Empleado: {{ $usuario->name }}</span>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="btn btn-outline-light btn-sm">Cerrar Sesión</button>
+            </form>
+        </div>
+    </nav>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-warning fixed-top">
-    <div class="container-fluid">
-      <span class="navbar-brand">Dashboard Empleado</span>
-      <a href="" class="btn btn-outline-dark">Cerrar sesión</a>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ route('empleado.altas') }}" class="text-decoration-none">
+                    <div class="card card-menu h-100 border-0 shadow-sm text-center py-4 text-primary">
+                        <div class="card-body">
+                            <i class="fas fa-user-plus fa-3x mb-3"></i>
+                            <h5 class="card-title">Alta de Socios</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ route('empleado.consultar') }}" class="text-decoration-none">
+                    <div class="card card-menu h-100 border-0 shadow-sm text-center py-4 text-success">
+                        <div class="card-body">
+                            <i class="fas fa-search fa-3x mb-3"></i>
+                            <h5 class="card-title">Consultar Info</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ route('empleado.pagos') }}" class="text-decoration-none">
+                    <div class="card card-menu h-100 border-0 shadow-sm text-center py-4 text-warning">
+                        <div class="card-body">
+                            <i class="fas fa-cash-register fa-3x mb-3"></i>
+                            <h5 class="card-title">Registrar Pagos</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ route('empleado.anuncios') }}" class="text-decoration-none">
+                    <div class="card card-menu h-100 border-0 shadow-sm text-center py-4 text-danger">
+                        <div class="card-body">
+                            <i class="fas fa-bullhorn fa-3x mb-3"></i>
+                            <h5 class="card-title">Anuncios</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
-  </nav>
-
-  <!-- Contenido principal -->
-  <main class="container pt-5 mt-4">
-    <h2 class="text-center mb-4">Panel del Empleado</h2>
-    <div class="row g-4">
-
-      <!-- Registrar Pagos -->
-      <div class="col-md-6">
-        <div class="card h-100 text-center">
-          <div class="card-body">
-            <i class="fas fa-cash-register fa-2x mb-3 text-warning"></i>
-            <h5 class="card-title">Registrar Pagos</h5>
-            <p class="card-text">Registra los pagos realizados por los socios.</p>
-            <a href="{{ route('registrar_pagos') }}" class="btn btn-warning">Ir a sección</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Alta de Socios -->
-      <div class="col-md-6">
-        <div class="card h-100 text-center">
-          <div class="card-body">
-            <i class="fas fa-user-plus fa-2x mb-3 text-warning"></i>
-            <h5 class="card-title">Alta de Socios</h5>
-            <p class="card-text">Agrega nuevos socios al sistema de forma rápida.</p>
-            <a href="{{ route('altas_socios') }}" class="btn btn-warning">Ir a sección</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Consultar Información -->
-      <div class="col-md-6">
-        <div class="card h-100 text-center">
-          <div class="card-body">
-            <i class="fas fa-search fa-2x mb-3 text-warning"></i>
-            <h5 class="card-title">Consultar Información</h5>
-            <p class="card-text">Busca datos de socios, pagos o membresías.</p>
-            <a href="{{ route('consultar_info') }}" class="btn btn-warning">Ir a sección</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Anuncios -->
-      <div class="col-md-6">
-        <div class="card h-100 text-center">
-          <div class="card-body">
-            <i class="fas fa-bullhorn fa-2x mb-3 text-warning"></i>
-            <h5 class="card-title">Anuncios</h5>
-            <p class="card-text">Publica o revisa comunicados internos del gimnasio.</p>
-            <a href="{{ route('anuncios_empleado') }}" class="btn btn-warning">Ir a sección</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/scripts.js"></script>
 </body>
 </html>
