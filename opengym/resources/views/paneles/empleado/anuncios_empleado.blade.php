@@ -17,6 +17,7 @@
 
     <div class="container">
         
+        <!-- Formulario para crear anuncios -->
         <div class="row justify-content-center mb-5">
             <div class="col-md-8">
                 <div class="card shadow-sm border-0">
@@ -51,6 +52,7 @@
             </div>
         </div>
 
+        <!-- Lista de Anuncios Recientes -->
         <h4 class="mb-4 text-secondary">Anuncios Recientes</h4>
         <div class="row g-4">
             @forelse($anuncios as $anuncio)
@@ -65,9 +67,18 @@
                         </div>
                         <p class="card-text text-secondary">{{ $anuncio->content }}</p>
                     </div>
-                    <div class="card-footer bg-white border-0 text-end">
-                        <small class="text-muted fst-italic">Publicado por Administración</small>
+                    
+                    <!-- BOTÓN ELIMINAR -->
+                    <div class="card-footer bg-white border-0 d-flex justify-content-end">
+                        <form action="{{ route('empleado.anuncios.destroy', $anuncio->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este anuncio?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-outline-danger border-0" title="Eliminar Anuncio">
+                                <i class="fas fa-trash-alt me-1"></i> Eliminar
+                            </button>
+                        </form>
                     </div>
+
                 </div>
             </div>
             @empty

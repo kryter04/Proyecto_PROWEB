@@ -2,44 +2,71 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gestión de Empleados</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}"> </head>
-<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
 
-  <nav class="navbar navbar-dark bg-primary fixed-top">
-    <div class="container-fluid">
+  <nav class="navbar navbar-dark bg-primary mb-4">
+    <div class="container">
       <span class="navbar-brand">Gestión de Empleados</span>
-      <a href="admin.html" class="btn btn-outline-light">Volver</a>
+      <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-light btn-sm">Volver</a>
     </div>
   </nav>
 
-  <main class="container pt-5 mt-4">
-    <h2 class="mb-4">Empleados registrados</h2>
-    <table class="table table-bordered table-hover">
-      <thead class="table-primary">
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Rol</th>
-          <th>Email</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>101</td><td>Laura Gómez</td><td>Recepción</td><td>laura@example.com</td>
-          <td>
-            <button class="btn btn-sm btn-warning">Editar</button>
-            <button class="btn btn-sm btn-danger">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <a href="#" class="btn btn-primary mt-3">Agregar nuevo empleado</a>
-  </main>
+  <main class="container">
+    
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
 
-  <script src="js/scripts.js"></script>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Equipo de Trabajo</h2>
+      <a href="{{ route('admin.empleados.create') }}" class="btn btn-primary">
+          <i class="fas fa-plus me-1"></i> Nuevo Empleado
+      </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+          <thead class="table-primary">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Teléfono</th>
+              <th class="text-end">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @forelse($empleados as $emp)
+            <tr>
+              <td>{{ $emp->id }}</td>
+              <td>{{ $emp->name }} {{ $emp->lastname }}</td>
+              <td>{{ $emp->email }}</td>
+              <td>{{ $emp->phone }}</td>
+              <td class="text-end">
+                <a href="{{ route('admin.empleados.edit', $emp->id) }}" class="btn btn-sm btn-outline-warning">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <form action="{{ route('admin.empleados.destroy', $emp->id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Despedir/Eliminar a este empleado?');">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-sm btn-outline-danger">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+              </td>
+            </tr>
+            @empty
+            <tr><td colspan="5" class="text-center py-4">No hay empleados registrados.</td></tr>
+            @endforelse
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
